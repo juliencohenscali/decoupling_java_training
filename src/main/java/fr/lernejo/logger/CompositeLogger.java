@@ -2,16 +2,16 @@ package fr.lernejo.logger;
 
 public class CompositeLogger implements  Logger{
 
-    FileLogger fileLogger;
+    FilteredLogger filteredLogger;
     ConsoleLogger consoleLogger;
 
-    public CompositeLogger(FileLogger fileLogger, ConsoleLogger consoleLogger){
-        this.fileLogger = fileLogger;
+    public CompositeLogger(FilteredLogger filteredLogger, ConsoleLogger consoleLogger){
+        this.filteredLogger = filteredLogger;
         this.consoleLogger = consoleLogger;
     }
     @Override
     public void log(String message) {
-        fileLogger.log(message);
+        filteredLogger.log(message);
         consoleLogger.log(message);
     }
 }
