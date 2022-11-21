@@ -1,7 +1,7 @@
 package fr.lernejo.logger;
 
 public class LoggerFactory {
-    public static FileLogger getLogger(String name){
-        return new FileLogger("/tmp/" + name);
+    public static CompositeLogger getLogger(String name){
+        return new CompositeLogger(new FileLogger("/tmp/" + name), new ConsoleLogger());
     }
 }
